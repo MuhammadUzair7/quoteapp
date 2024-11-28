@@ -82,9 +82,15 @@
             ];
 
             var random = Math.floor(Math.random() * quote.length);
-
+            
             document.getElementById('quote').textContent = `${quote[random]?.title}`;
             document.getElementById('quoteBy').textContent = `${quote[random]?.byarr}`;
+
+            let speech = new SpeechSynthesisUtterance();
+            speech.text = quote[random]?.title;
+            window.speechSynthesis.speak(speech)
+            console.log(quote[random]?.title)
+
             var heart = document.getElementById('heart');
             heart.style.color = 'black';
         }
